@@ -23,7 +23,7 @@ const Travel: NextPageWithLayout<{ locations: Location[] }> = ({
                 <title>{`Room of Clouds`}</title>
             </Head>
             <main>
-                <Wrapper apiKey={'AIzaSyCTp1pD9N9_nZLXNPIN8wABXtknuz_3gow'}>
+                <Wrapper apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY || ''}>
                     <div className="py-10">
                         <CenteredHeader title="Coming soon!" />
                     </div>
