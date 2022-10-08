@@ -42,7 +42,7 @@ const tipMap: TipMap = {
         src: '/images/icons/tip_accommodation.png',
         width: 48,
         height: 37,
-    }
+    },
 }
 
 export interface TipProps {

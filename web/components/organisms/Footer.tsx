@@ -1,7 +1,8 @@
-import type { FC } from 'react'
 import Image from 'next/image'
-import Container from '@/atoms/Container'
+import type { FC } from 'react'
 import React from 'react'
+
+import Container from '@/atoms/Container'
 
 const Footer: FC = () => {
     return (

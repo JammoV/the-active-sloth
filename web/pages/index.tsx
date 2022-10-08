@@ -6,28 +6,29 @@ import Link from 'next/link'
 import type { ReactElement } from 'react'
 import React from 'react'
 
-import client from '../client'
-
-import type { NextPageWithLayout } from './_app'
-
 import type { IPost } from '@/api/Types'
 import Button from '@/atoms/Button'
+import CenteredHeader from '@/atoms/CenteredHeader'
 import Container from '@/atoms/Container'
 import Generic from '@/layouts/Generic'
 import HomepageRecentPosts from '@/molecules/HomepageRecentPosts'
 import About from '@/organisms/About'
 import HeroPost from '@/organisms/HeroPost'
-import CenteredHeader from '@/atoms/CenteredHeader'
 
-const Index: NextPageWithLayout<{ primaryPost: IPost | null, posts: IPost[] }> = ({ primaryPost, posts }) => {
+import client from '../client'
+
+import type { NextPageWithLayout } from './_app'
+
+const Index: NextPageWithLayout<{
+    primaryPost: IPost | null
+    posts: IPost[]
+}> = ({ primaryPost, posts }) => {
     return (
         <>
             <Head>
                 <title>{`The Active Sloth`}</title>
             </Head>
-            {
-                primaryPost && <HeroPost post={primaryPost} withLink={true} />
-            }
+            {primaryPost && <HeroPost post={primaryPost} withLink={true} />}
 
             <About />
 

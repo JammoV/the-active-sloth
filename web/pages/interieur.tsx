@@ -2,21 +2,24 @@ import { PortableText } from '@portabletext/react'
 import groq from 'groq'
 import type { GetStaticProps } from 'next'
 import Head from 'next/head'
-import type { FC } from 'react'
+import type { ReactElement } from 'react'
+import React from 'react'
 
-import type { Post } from '@/api/Types'
-import GenericTemplate from '@/templates/Generic'
+import type { IPost } from '@/api/Types'
+import Generic from '@/layouts/Generic'
 
 import client from '../client'
 import portableComponents from '../lib/PortableComponents'
 
-const Interieur: FC<{ post: Post }> = ({ post }) => {
+import type { NextPageWithLayout } from './_app'
+
+const Interieur: NextPageWithLayout<{ post: IPost }> = ({ post }) => {
     if (!post) return null
 
     const { title = 'Missing title', body = [] } = post
 
     return (
-        <GenericTemplate>
+        <>
             <Head>
                 <title>{`Room of Clouds - ${title}`}</title>
             </Head>
@@ -31,16 +34,20 @@ const Interieur: FC<{ post: Post }> = ({ post }) => {
                     />
                 </div>
             </article>
-        </GenericTemplate>
+        </>
     )
 }
 
+Interieur.getLayout = function getLayout(page: ReactElement): ReactElement {
+    return <Generic>{page}</Generic>
+}
+
 interface ResultData {
-    post: Post
+    post: IPost
 }
 
 export const getStaticProps: GetStaticProps<ResultData> = async () => {
-    const posts: Post[] = await client.fetch(groq`
+    const posts: IPost[] = await client.fetch(groq`
       *[_type == "post" && publishedAt < now() && categories[0]->title == "Interieur"] | order(publishedAt desc)[0...1]
     `)
     return {

@@ -11,13 +11,13 @@ const Header: FC<HeaderProps> = ({ type, children }) => {
     }
     if (type === HeaderType.H2) {
         return (
-            <h2 className={`text-2xl font-merienda font-bold mt-12 mb-4`}>{children}</h2>
+            <h2 className={`text-2xl font-merienda font-bold mt-12 mb-4`}>
+                {children}
+            </h2>
         )
     }
     if (type === HeaderType.H3) {
-        return (
-            <h3 className={`text-xl font-medium my-2`}>{children}</h3>
-        )
+        return <h3 className={`text-xl font-medium my-2`}>{children}</h3>
     }
     if (type === HeaderType.H4) {
         return <h4 className={`text-lg font-medium pt-4 pb-2`}>{children}</h4>

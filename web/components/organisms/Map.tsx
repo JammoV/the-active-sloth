@@ -1,32 +1,20 @@
-import type { FC, ReactNode } from 'react'
-import {
-    useRef,
-    useState,
-    useEffect,
-    isValidElement,
-    cloneElement,
-} from 'react'
+import type { FC } from 'react'
+import { useRef, useState, useEffect, cloneElement } from 'react'
 
 import type { Location } from '@/api/Types'
+import Marker from '@/molecules/Marker'
 
 import MapStyles from '../../lib/MapStyles'
-import Marker from '@/molecules/Marker'
 
 interface MapProps extends google.maps.MapOptions {
     // style: { [key: string]: string };
     onClick?: (e: google.maps.MapMouseEvent) => void
     onIdle?: (map: google.maps.Map) => void
-    children: ReactNode[]
+    // children: ReactNode[]
     locations: Location[]
 }
 
-const Map: FC<MapProps> = ({
-    children,
-    locations,
-    onClick,
-    onIdle,
-    ...options
-}) => {
+const Map: FC<MapProps> = ({ locations }) => {
     const ref = useRef<HTMLDivElement>(null)
     const [map, setMap] = useState<google.maps.Map>()
 
@@ -61,7 +49,6 @@ const Map: FC<MapProps> = ({
     // @ts-ignore
     paths.setMap(map)
 
-
     return (
         <>
             <div ref={ref} className="w-full h-[500px]" />
@@ -69,8 +56,16 @@ const Map: FC<MapProps> = ({
             {/*    position={{ lat: 20.689952, lng: -87.6536673 }}*/}
             {/*/>{' '}*/}
             {locations.map((location: Location) => {
-                    // set the map prop on the child component
-                    return cloneElement(<Marker position={{lat: location.coords.lat, lng: location.coords.lng}} />, { map })
+                // set the map prop on the child component
+                return cloneElement(
+                    <Marker
+                        position={{
+                            lat: location.coords.lat,
+                            lng: location.coords.lng,
+                        }}
+                    />,
+                    { map }
+                )
             })}
         </>
     )

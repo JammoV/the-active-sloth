@@ -6,14 +6,14 @@ import { useRouter } from 'next/router'
 import type { ReactElement } from 'react'
 import React from 'react'
 
-import client from '../../client'
-import portableComponents from '../../lib/PortableComponents'
-import type { NextPageWithLayout } from '../_app'
-
 import type { IPost } from '@/api/Types'
 import Container from '@/atoms/Container'
 import Generic from '@/layouts/Generic'
 import HeroPost from '@/organisms/HeroPost'
+
+import client from '../../client'
+import portableComponents from '../../lib/PortableComponents'
+import type { NextPageWithLayout } from '../_app'
 
 const query = groq`*[_type == "post" && slug.current == $slug][0]{
   title,

@@ -5,14 +5,14 @@ import Head from 'next/head'
 import type { ReactElement } from 'react'
 import React from 'react'
 
-import client from '../client'
-
-import type { NextPageWithLayout } from './_app'
-
 import type { Location } from '@/api/Types'
 import CenteredHeader from '@/atoms/CenteredHeader'
 import Generic from '@/layouts/Generic'
 import Map from '@/organisms/Map'
+
+import client from '../client'
+
+import type { NextPageWithLayout } from './_app'
 
 const Travel: NextPageWithLayout<{ locations: Location[] }> = ({
     locations,

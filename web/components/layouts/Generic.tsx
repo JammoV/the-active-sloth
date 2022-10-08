@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from 'react'
+import React from 'react'
 
 import Header from '@/organisms//Header'
-import React from 'react'
 import Footer from '@/organisms/Footer'
 
 interface LayoutGenericProps {

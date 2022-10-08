@@ -1,9 +1,9 @@
 import imageUrlBuilder from '@sanity/image-url'
 import type { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder'
 
-import client from '../client'
-
 import type { PortableText } from '@/api/Types'
+
+import client from '../client'
 
 export function getPostDescription(postBody: PortableText[]): string {
     const blocks = postBody

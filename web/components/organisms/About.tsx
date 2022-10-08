@@ -33,10 +33,7 @@ const About: FC = () => {
                         />
                     </div>
                 </div>
-
             </div>
-
-
         </div>
     )
 }
