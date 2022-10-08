@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "@/api/*": ["api/*"],
+      "@/atoms/*": ["components/atoms/*"],
+      "@/molecules/*": ["components/molecules/*"],
+      "@/organisms/*": ["components/organisms/*"],
+      "@/templates/*": ["components/templates/*"], // Remove
+      "@/layouts/*": ["components/layouts/*"]
+    }
+  },
+  "files": [
+    "@types/block-content-to-react.d.ts"
+  ],
+  "include": ["app-env.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
