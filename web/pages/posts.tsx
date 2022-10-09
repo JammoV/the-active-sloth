@@ -8,6 +8,7 @@ import type { ICategory, IPost } from '@/api/Types'
 import CenteredHeader from '@/atoms/CenteredHeader'
 import Container from '@/atoms/Container'
 import Generic from '@/layouts/Generic'
+import CategoryFilter from '@/molecules/CategoryFilter'
 import PostHero from '@/molecules/PostHero'
 
 import client from '../client'
@@ -49,33 +50,24 @@ const Posts: NextPageWithLayout<{
         <>
             <Head>
                 <title>Room of Clouds - Alle reis artikelen</title>
+                <meta
+                    name="description"
+                    content="The Active Sloth: een overzicht van alle Reis Artikelen"
+                />
             </Head>
             <Container>
                 <div className="mt-8 mb-2">
                     <CenteredHeader title="Alle reis artikelen" />
                 </div>
                 {categories && (
-                    <div className="flex flex-wrap md:flex-row justify-center mb-8">
-                        <span className="font-medium pr-2">Filter op:</span>
-                        {categories.map((category: ICategory) => (
-                            <span
-                                key={category.title}
-                                className={`px-2 cursor-pointer hover:underline ${
-                                    category._id === categoryFilter?._id
-                                        ? 'bg-orange rounded-full'
-                                        : ''
-                                } `}
-                                onClick={(): void =>
-                                    handleCategoryFilterChange(category)
-                                }
-                            >
-                                {category.title}
-                            </span>
-                        ))}
-                    </div>
+                    <CategoryFilter
+                        categories={categories}
+                        activeCategory={categoryFilter}
+                        clickHandler={handleCategoryFilterChange}
+                    />
                 )}
-                {activePosts.map((post) => (
-                    <PostHero post={post} key={post._id} />
+                {activePosts.map((post, index) => (
+                    <PostHero post={post} key={post._id} index={index} />
                 ))}
             </Container>
         </>
@@ -96,7 +88,7 @@ export const getStaticProps: GetStaticProps<ResultData> = async () => {
       *[_type == "post" && publishedAt < now() && categories[0]->title != "Interieur"] | order(publishedAt desc)
     `)
     const categories: ICategory[] = await client.fetch(groq`
-      *[_type == "category"]
+      *[_type == "category" && title != "Interieur"]
     `)
 
     return {

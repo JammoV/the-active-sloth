@@ -6,7 +6,7 @@ export interface ButtonProps {
 
 const Button: FC<ButtonProps> = ({ text }) => {
     return (
-        <span className="bg-green-primary/75 font-medium mx-auto md:mx-0 text-white rounded-full py-3 px-10 cursor-pointer hover:bg-green-primary">
+        <span className="bg-green-primary font-medium mx-auto md:mx-0 text-white rounded-full py-3 px-10 cursor-pointer">
             {text}
         </span>
     )

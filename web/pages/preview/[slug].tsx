@@ -32,6 +32,7 @@ const Post: NextPageWithLayout<{ post: IPost }> = ({ post }) => {
         <>
             <Head>
                 <title>{`Room of Clouds - ${post.title}`}</title>
+                <meta name="robots" content="noindex,nofollow" />
             </Head>
             <HeroPost post={post} />
             <Container>

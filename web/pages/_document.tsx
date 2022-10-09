@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 class MyDocument extends Document {
     render(): JSX.Element {
         return (
-            <Html>
+            <Html lang="nl">
                 <Head>
                     <link
                         href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&family=Merienda:wght@400;700&display=swap"

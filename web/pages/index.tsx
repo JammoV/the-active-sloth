@@ -27,6 +27,10 @@ const Index: NextPageWithLayout<{
         <>
             <Head>
                 <title>{`The Active Sloth`}</title>
+                <meta
+                    name="description"
+                    content="The Active Sloth: alles wat met reizen te maken heeft!"
+                />
             </Head>
             {primaryPost && <HeroPost post={primaryPost} withLink={true} />}
 
@@ -39,6 +43,7 @@ const Index: NextPageWithLayout<{
                         layout={'fill'}
                         objectFit={'cover'}
                         objectPosition={'center'}
+                        alt="Decorative wave"
                     />
                 </div>
             </div>

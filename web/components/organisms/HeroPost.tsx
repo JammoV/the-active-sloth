@@ -22,6 +22,7 @@ const HeroPost: FC<HeroPostProps> = ({ post, withLink = false }) => {
                 objectPosition={'center'}
                 className="z-0"
                 alt={post.title}
+                priority={true}
             />
             <div className="bg-gradient-to-r from-black/50 to-black/20 w-full h-full absolute"></div>
             <Container>
@@ -33,6 +34,7 @@ const HeroPost: FC<HeroPostProps> = ({ post, withLink = false }) => {
                     layout={'fill'}
                     objectFit={'cover'}
                     objectPosition={'top'}
+                    alt="Decorative wave"
                 />
             </div>
             <div className="absolute bottom-0 h-8 md:h-20 w-full">
@@ -41,6 +43,7 @@ const HeroPost: FC<HeroPostProps> = ({ post, withLink = false }) => {
                     layout={'fill'}
                     objectFit={'cover'}
                     objectPosition={'top'}
+                    alt="Decorative wave"
                 />
             </div>
         </div>

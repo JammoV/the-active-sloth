@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import type { FC } from 'react'
 
-import { getPostDescription } from '../../lib/PostFunctions'
-
 import type { IPost } from '@/api/Types'
 import Button from '@/atoms/Button'
+
+import { getPostDescription } from '../../lib/PostFunctions'
 
 interface HeroPostDescriptionProps {
     post: IPost

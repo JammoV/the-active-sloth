@@ -14,6 +14,7 @@ const Footer: FC = () => {
                         layout={'fill'}
                         objectFit={'cover'}
                         objectPosition={'center'}
+                        alt="Decorative wave"
                     />
                 </div>
             </div>

@@ -4,20 +4,21 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { FC } from 'react'
 
+import type { IPost } from '@/api/Types'
+
 import client from '../../client'
 import { getPostDescription } from '../../lib/PostFunctions'
 
-import type { IPost } from '@/api/Types'
-
 interface PostHeroProps {
     post: IPost
+    index: number
 }
 
 const urlFor = (source: string): ImageUrlBuilder => {
     return imageUrlBuilder(client).image(source)
 }
 
-const PostHero: FC<PostHeroProps> = ({ post }) => (
+const PostHero: FC<PostHeroProps> = ({ post, index }) => (
     <Link href="/post/[slug]" as={`/post/${post.slug.current}`}>
         <div className="flex flex-col hover:cursor-pointer md:mb-6 md:flex-row">
             <div className="md:min-w-[505px]">
@@ -30,8 +31,9 @@ const PostHero: FC<PostHeroProps> = ({ post }) => (
                     width={505}
                     height={342}
                     layout="responsive"
-                    loading="lazy"
+                    loading={index === 0 ? 'eager' : 'lazy'}
                     alt={post.title}
+                    priority={index === 0}
                 />
             </div>
             <div className="flex flex-col justify-center py-4 md:p-8">
