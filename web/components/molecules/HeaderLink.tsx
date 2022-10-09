@@ -13,10 +13,10 @@ interface HeaderLinkProps {
 const HeaderLink: FC<HeaderLinkProps> = ({ href, icon, subTitle, title }) => {
     return (
         <Link href={href}>
-            <a className="flex-1 flex flex-col justify-center items-center hover:underline md:flex-none md:w-52 md:pt-10">
+            <a className="flex-1 flex flex-col justify-center items-center hover:underline md:flex-none md:w-52 md:pt-12">
                 <FontAwesomeIcon
                     icon={icon}
-                    className="hidden pt-6 pb-1 text-xl md:block"
+                    className="hidden pt-6 pb-1 text-xl"
                     size="1x"
                 />
                 <span className="font-bold text-lg">{title}</span>
