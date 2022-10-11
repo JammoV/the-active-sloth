@@ -96,12 +96,12 @@ const Gallery: FC<GalleryProps> = ({ title, description, images, display }) => {
                         <Image
                             alt={``}
                             width={imageWidth}
-                            height={imageHeight}
+                            height={550}
                             quality={100}
                             // @ts-ignore
                             src={urlFor(image as string)
                                 .width(imageWidth)
-                                .height(imageHeight)
+                                .height(550)
                                 .quality(100)
                                 .url()}
                         />
