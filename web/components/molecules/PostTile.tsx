@@ -34,7 +34,11 @@ const PostTile: FC<PostTileProps> = ({ post }) => (
                         {post.title}
                     </h3>
                     <span className="hidden md:block md:text-xl drop-shadow-md">
-                        {post.publishedAt}
+                        {new Date(post.publishedAt).toLocaleDateString('nl', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                        })}
                     </span>
                 </div>
             </div>

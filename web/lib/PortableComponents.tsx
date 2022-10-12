@@ -2,6 +2,7 @@ import type {
     PortableTextComponents,
     PortableTextTypeComponentProps,
 } from '@portabletext/react'
+import type { PortableTextMarkComponentProps } from '@portabletext/react/src/types'
 import imageUrlBuilder from '@sanity/image-url'
 import type { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder'
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
@@ -21,6 +22,12 @@ interface GalleryProps {
         title?: string
         description?: string
     }
+}
+
+interface LinkProps {
+    _type: string
+    href: string
+    text: string
 }
 
 const urlFor = (source: string): ImageUrlBuilder => {
@@ -65,6 +72,14 @@ const portableComponents: PortableTextComponents = {
     marks: {
         highlight: ({ children }) => (
             <span className="highlight">{children}</span>
+        ),
+        link: ({ value, text }: PortableTextMarkComponentProps<LinkProps>) => (
+            <a
+                className="text-green-primary font-medium hover:underline"
+                href={value?.href}
+            >
+                {text}
+            </a>
         ),
     },
     block: {

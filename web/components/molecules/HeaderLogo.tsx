@@ -9,7 +9,7 @@ const HeaderLogo: FC = () => {
                 <Link href={'/'}>
                     <a>
                         <Image
-                            src="/images/LogoWithText.png"
+                            src="/images/LogoWithTextBlush.png"
                             width={166.4}
                             height={179.4}
                             alt="Back to home"
