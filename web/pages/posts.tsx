@@ -49,7 +49,7 @@ const Posts: NextPageWithLayout<{
     return (
         <>
             <Head>
-                <title>Room of Clouds - Alle reis artikelen</title>
+                <title>The Active Sloth - Alle reis artikelen</title>
                 <meta
                     name="description"
                     content="The Active Sloth: een overzicht van alle Reis Artikelen"

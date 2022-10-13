@@ -21,7 +21,7 @@ const Interieur: NextPageWithLayout<{ post: IPost }> = ({ post }) => {
     return (
         <>
             <Head>
-                <title>{`Room of Clouds - ${title}`}</title>
+                <title>{`The Active Sloth - ${title}`}</title>
             </Head>
             <article>
                 <div>

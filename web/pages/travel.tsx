@@ -20,7 +20,7 @@ const Travel: NextPageWithLayout<{ locations: Location[] }> = ({
     return (
         <>
             <Head>
-                <title>{`Room of Clouds`}</title>
+                <title>{`The Active Sloth - Travel`}</title>
             </Head>
             <main>
                 <Wrapper apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY || ''}>
