@@ -12,9 +12,14 @@ module.exports = {
         'sandy': '#FFF9F3',
         'sand': '#F9EBDD',
         'orange': '#FCD8C9',
+        'orange-dark': '#f3936d',
         'dark': '#444444',
         'grey': '#3C484B',
       },
+    },
+    transitionProperty: {
+      horizontal: 'left, right',
+      vertical: 'top, bottom',
     },
     screens: {
       sm: '640px',

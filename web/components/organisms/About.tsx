@@ -25,7 +25,7 @@ const About: FC = () => {
                     />
                     <div className="hidden md:block md:absolute md:-bottom-[27px] md:-right-[27px]">
                         <Image
-                            src="/images/LogoSmall.png"
+                            src="/images/LogoSmallStrik.png"
                             width={73}
                             height={74}
                             alt="Eline: The Active Sloth"

@@ -11,6 +11,10 @@ export interface IPost {
     mainImage: string
     body: PortableText[]
     name: string
+    coords: {
+        lat: number
+        lng: number
+    }
 }
 
 export interface ICategory {

@@ -1,4 +1,5 @@
 import '../styles/global.css'
+import { Wrapper } from '@googlemaps/react-wrapper'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import type { ReactElement, ReactNode } from 'react'
@@ -15,7 +16,11 @@ function App({ Component, pageProps }: AppPropsWithLayout): ReactNode {
     // Use the layout defined at the page level, if available
     const getLayout = Component.getLayout ?? ((page): ReactNode => page)
 
-    return getLayout(<Component {...pageProps} />)
+    return getLayout(
+        <Wrapper apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY || ''}>
+            <Component {...pageProps} />
+        </Wrapper>
+    )
 }
 
 export default App

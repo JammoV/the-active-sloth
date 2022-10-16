@@ -15,15 +15,17 @@ const CategoryFilter: FC<CategoryFilterProps> = ({
     clickHandler,
 }) => {
     return (
-        <div className="flex flex-wrap md:flex-row justify-center mb-8">
-            <span className="font-medium pr-2">Filter op:</span>
+        <div className="flex flex-wrap justify-center items-center md:flex-row gap-2">
+            <span className="font-medium text-sm text-gray-700">
+                Filter op:
+            </span>
             {categories.map((category: ICategory) => (
                 <span
                     key={category.title}
-                    className={`px-2 cursor-pointer hover:underline ${
+                    className={`py-1 px-2 text-sm border cursor-pointer rounded-full ${
                         category._id === activeCategory?._id
-                            ? 'bg-orange rounded-full'
-                            : ''
+                            ? 'border-green-primary text-white bg-green-primary'
+                            : 'border-gray-400 text-gray-400'
                     } `}
                     onClick={(): void => clickHandler(category)}
                 >

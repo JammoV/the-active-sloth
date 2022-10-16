@@ -7,10 +7,8 @@ import Marker from '@/molecules/Marker'
 import MapStyles from '../../lib/MapStyles'
 
 interface MapProps extends google.maps.MapOptions {
-    // style: { [key: string]: string };
     onClick?: (e: google.maps.MapMouseEvent) => void
     onIdle?: (map: google.maps.Map) => void
-    // children: ReactNode[]
     locations: Location[]
 }
 
@@ -41,7 +39,7 @@ const Map: FC<MapProps> = ({ locations }) => {
             }
         }),
         geodesic: true,
-        strokeColor: '#FF0000',
+        strokeColor: '#666666',
         strokeOpacity: 1.0,
         strokeWeight: 3,
         draggable: false,
@@ -52,9 +50,6 @@ const Map: FC<MapProps> = ({ locations }) => {
     return (
         <>
             <div ref={ref} className="w-full h-[500px]" />
-            {/*<Marker*/}
-            {/*    position={{ lat: 20.689952, lng: -87.6536673 }}*/}
-            {/*/>{' '}*/}
             {locations.map((location: Location) => {
                 // set the map prop on the child component
                 return cloneElement(
@@ -63,6 +58,13 @@ const Map: FC<MapProps> = ({ locations }) => {
                             lat: location.coords.lat,
                             lng: location.coords.lng,
                         }}
+                        icon={{
+                            url: 'images/MarkerActive.png',
+                            scaledSize: new google.maps.Size(25, 34),
+                        }}
+                        clickable={true}
+                        postId={location._id}
+                        onClick={(): void => undefined}
                     />,
                     { map }
                 )

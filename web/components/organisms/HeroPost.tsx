@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import type { FC } from 'react'
 
-import { urlFor } from '../../lib/PostFunctions'
-
 import type { IPost } from '@/api/Types'
 import Container from '@/atoms/Container'
 import HeroPostDescription from '@/molecules/HeroPostDescription'
+
+import { urlFor } from '../../lib/PostFunctions'
 
 interface HeroPostProps {
     post: IPost

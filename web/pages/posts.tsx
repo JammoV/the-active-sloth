@@ -9,7 +9,9 @@ import CenteredHeader from '@/atoms/CenteredHeader'
 import Container from '@/atoms/Container'
 import Generic from '@/layouts/Generic'
 import CategoryFilter from '@/molecules/CategoryFilter'
-import PostHero from '@/molecules/PostHero'
+import MapViewButtons from '@/molecules/MapViewButtons'
+import PostsList from '@/organisms/PostsList'
+import PostsMap from '@/organisms/PostsMap'
 
 import client from '../client'
 
@@ -21,6 +23,7 @@ const Posts: NextPageWithLayout<{
 }> = ({ posts, categories }) => {
     const [activePosts, setActivePosts] = useState<IPost[]>(posts)
     const [categoryFilter, setCategoryFilter] = useState<ICategory | null>(null)
+    const [mapView, setMapView] = useState<boolean>(false)
 
     const handleCategoryFilterChange = (category: ICategory): void => {
         if (category._id === categoryFilter?._id) {
@@ -59,17 +62,24 @@ const Posts: NextPageWithLayout<{
                 <div className="mt-8 mb-2">
                     <CenteredHeader title="Alle reis artikelen" />
                 </div>
-                {categories && (
+                <div className="flex flex-col sm:flex-row justify-between items-center border-b border-b-gray-200 pb-4 gap-2 my-4">
                     <CategoryFilter
                         categories={categories}
                         activeCategory={categoryFilter}
                         clickHandler={handleCategoryFilterChange}
                     />
-                )}
-                {activePosts.map((post, index) => (
-                    <PostHero post={post} key={post._id} index={index} />
-                ))}
+                    <MapViewButtons
+                        activeView={mapView ? 'map' : 'list'}
+                        onClick={(mapView): void => setMapView(mapView)}
+                    />
+                </div>
             </Container>
+
+            {mapView ? (
+                <PostsMap posts={activePosts} categoryFilter={categoryFilter} />
+            ) : (
+                <PostsList posts={activePosts} />
+            )}
         </>
     )
 }

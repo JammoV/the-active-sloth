@@ -1,4 +1,3 @@
-import { Wrapper } from '@googlemaps/react-wrapper'
 import groq from 'groq'
 import type { GetStaticProps } from 'next'
 import Head from 'next/head'
@@ -23,12 +22,10 @@ const Travel: NextPageWithLayout<{ locations: Location[] }> = ({
                 <title>{`The Active Sloth - Travel`}</title>
             </Head>
             <main>
-                <Wrapper apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY || ''}>
-                    <div className="py-10">
-                        <CenteredHeader title="Coming soon!" />
-                    </div>
-                    <Map locations={locations} />
-                </Wrapper>
+                <div className="py-10">
+                    <CenteredHeader title="Coming soon!" />
+                </div>
+                <Map locations={locations} />
             </main>
         </>
     )

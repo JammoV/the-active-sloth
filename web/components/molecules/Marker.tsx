@@ -1,7 +1,12 @@
 import type { FC } from 'react'
 import { useState, useEffect } from 'react'
 
-const Marker: FC<google.maps.MarkerOptions> = (options) => {
+export interface MarkerProps extends google.maps.MarkerOptions {
+    postId: string
+    onClick: (options: MarkerProps) => void
+}
+
+const Marker: FC<MarkerProps> = (options) => {
     const [marker, setMarker] = useState<google.maps.Marker>()
 
     useEffect(() => {
@@ -9,7 +14,6 @@ const Marker: FC<google.maps.MarkerOptions> = (options) => {
             setMarker(new google.maps.Marker())
         }
 
-        // remove marker from map on unmount
         return () => {
             if (marker) {
                 marker.setMap(null)
@@ -20,6 +24,7 @@ const Marker: FC<google.maps.MarkerOptions> = (options) => {
     useEffect(() => {
         if (marker) {
             marker.setOptions(options)
+            marker.addListener('click', () => options.onClick(options))
         }
     }, [marker, options])
 
