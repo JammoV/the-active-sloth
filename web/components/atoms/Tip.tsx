@@ -12,6 +12,7 @@ enum Type {
 type TipMap = {
     [key: string]: {
         src: string
+        alt: string
         width: number
         height: number
     }
@@ -22,26 +23,31 @@ const tipMap: TipMap = {
         src: '/images/icons/tip_general.png',
         width: 48,
         height: 45,
+        alt: 'Algemene tip',
     },
     [Type.FOOD]: {
         src: '/images/icons/tip_food.png',
         width: 48,
         height: 37,
+        alt: 'Food tip',
     },
     [Type.DRINKS]: {
         src: '/images/icons/tip_drinks.png',
         width: 48,
         height: 44,
+        alt: 'Drinks tip',
     },
     [Type.ACTIVITY]: {
         src: '/images/icons/tip_activity.png',
         width: 56,
         height: 44,
+        alt: 'Activiteit tip',
     },
     [Type.ACCOMMODATION]: {
         src: '/images/icons/tip_accommodation.png',
         width: 48,
         height: 37,
+        alt: 'Accomodatie tip',
     },
 }
 
@@ -60,6 +66,7 @@ const Tip: FC<TipProps> = ({ text, type }) => {
                     src={tipConfig.src}
                     width={tipConfig.width}
                     height={tipConfig.height}
+                    alt={tipConfig.alt}
                 />
             </div>
             <div className={`ml-4 m-h-[40px]`}>{text}</div>

@@ -2,7 +2,7 @@ import type { FC } from 'react'
 import { useState, useEffect } from 'react'
 
 export interface MarkerProps extends google.maps.MarkerOptions {
-    postId: string
+    id: string
     onClick: (options: MarkerProps) => void
 }
 

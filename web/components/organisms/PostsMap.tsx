@@ -59,7 +59,7 @@ const PostsMap: FC<PostsMapProps> = ({ posts, categoryFilter = null }) => {
     const [activePost, setActivePost] = useState<IPost | null>(null)
 
     const onMarkerClick = (options: MarkerProps): void => {
-        const post = posts.find((post) => post._id === options.postId)
+        const post = posts.find((post) => post._id === options.id)
         setActivePost(null)
 
         if (post) {
@@ -128,7 +128,7 @@ const PostsMap: FC<PostsMapProps> = ({ posts, categoryFilter = null }) => {
                             clickable={true}
                             title={post.title}
                             opacity={1}
-                            postId={post._id}
+                            id={post._id}
                             onClick={onMarkerClick}
                         />,
                         { map }

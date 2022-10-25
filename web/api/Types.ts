@@ -1,3 +1,5 @@
+import type { SanityAssetExtended } from '@/organisms/Gallery'
+
 export interface IPost {
     _id: string
     title: string
@@ -40,17 +42,34 @@ export interface Record {
     text: string
 }
 
-export interface Location {
+export interface ILocation {
     _id: string
     location: string
     subtitle: string
     slug: {
         current: string
     }
+    arrived: boolean
+    sort_order: number
+    arrival_date: string
+    description: string
+    expected_arrival_date: string
     publishedAt: string
     body: PortableText[]
     coords: {
         lat: number
         lng: number
     }
+    images: ILocationImage[]
+    notes: INote[]
+}
+
+export interface ILocationImage extends SanityAssetExtended {
+    image: string | SanityAssetExtended
+    caption: string
+}
+
+export interface INote {
+    note: string
+    url: string
 }

@@ -4,8 +4,6 @@ import type { SanityAsset } from '@sanity/image-url/lib/types/types'
 import Image from 'next/image'
 import type { FC } from 'react'
 
-import InteriorGallery from '@/organisms/InteriorGallery'
-
 import client from '../../client'
 
 const imageHeight = 400
@@ -60,16 +58,12 @@ const getGalleryClass = (display: GalleryDisplay): string => {
     }
 }
 
-export type GalleryImage = string | SanityAssetExtended
-
 export interface SanityAssetExtended extends SanityAsset {
     title: string
     alt: string
 }
 
 interface GalleryProps {
-    title: string
-    description: string
     images: SanityAssetExtended[]
     display?: string
 }
@@ -78,10 +72,9 @@ export enum GalleryDisplay {
     DEFAULT = '',
     INLINE = 'inline',
     STACKED = 'stacked',
-    INTERIOR = 'interior',
 }
 
-const Gallery: FC<GalleryProps> = ({ title, description, images, display }) => {
+const Gallery: FC<GalleryProps> = ({ images, display }) => {
     const imagesLength = images.length
 
     if (display === GalleryDisplay.INLINE && images.length < 5) {
@@ -94,7 +87,7 @@ const Gallery: FC<GalleryProps> = ({ title, description, images, display }) => {
                     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                     <div className="m-1 first:ml-0 last:mr-0" key={image._key}>
                         <Image
-                            alt={``}
+                            alt={image.alt}
                             width={imageWidth}
                             height={550}
                             quality={100}
@@ -124,6 +117,7 @@ const Gallery: FC<GalleryProps> = ({ title, description, images, display }) => {
                             width={imageWidth}
                             height={imageHeight}
                             quality={100}
+                            alt={image.alt}
                             // @ts-ignore
                             src={urlFor(image as string)
                                 .width(imageWidth)
@@ -134,16 +128,6 @@ const Gallery: FC<GalleryProps> = ({ title, description, images, display }) => {
                     </div>
                 ))}
             </div>
-        )
-    }
-
-    if (display === GalleryDisplay.INTERIOR) {
-        return (
-            <InteriorGallery
-                images={images}
-                title={title}
-                description={description}
-            />
         )
     }
 
@@ -160,6 +144,7 @@ const Gallery: FC<GalleryProps> = ({ title, description, images, display }) => {
                         <Image
                             width={imageWidth}
                             height={imageHeight}
+                            alt={image.alt}
                             quality={100}
                             // @ts-ignore
                             src={urlFor(image as string)

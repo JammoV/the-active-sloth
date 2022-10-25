@@ -1,4 +1,4 @@
-export default [
+const styles = [
     {
         featureType: 'all',
         elementType: 'all',
@@ -105,3 +105,5 @@ export default [
         ],
     },
 ]
+
+export default styles
