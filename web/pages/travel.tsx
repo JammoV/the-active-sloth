@@ -46,19 +46,20 @@ const Travel: NextPageWithLayout<{ locations: ILocation[] }> = ({
                                 <h2 className="text-3xl mb-4 font-merienda">
                                     {activeLocation.location}
                                 </h2>
-                                <p className="italic">
-                                    Verwachte aankomstdatum:
+
+                                {activeLocation.arrived ? (
+                                    <>
+                                        <p className="italic">
+                                            Aankomstdatum:
                                     <br />
                                     {new Date(
-                                        activeLocation.expected_arrival_date
+                                        activeLocation.arrival_date
                                     ).toLocaleDateString('nl', {
                                         year: 'numeric',
                                         month: 'long',
                                         day: 'numeric',
                                     })}
                                 </p>
-                                {activeLocation.arrived ? (
-                                    <>
                                         <PortableText
                                             value={activeLocation.body}
                                             components={portableComponents}
@@ -70,9 +71,32 @@ const Travel: NextPageWithLayout<{ locations: ILocation[] }> = ({
                                         )}
                                     </>
                                 ) : (
+                                    <>
+                                        <p className="italic">
+
+                                    Verwachte aankomstdatum:
+
+                                    <br />
+
+                                    {new Date(
+
+                                        activeLocation.expected_arrival_date
+
+                                    ).toLocaleDateString('nl', {
+
+                                        year: 'numeric',
+
+                                        month: 'long',
+
+                                        day: 'numeric',
+
+                                    })}
+
+                                </p>
                                     <p className="font-medium">
                                         Binnenkort meer!
                                     </p>
+                                    </>
                                 )}
                             </div>
                         )}
