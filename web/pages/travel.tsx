@@ -51,14 +51,14 @@ const Travel: NextPageWithLayout<{ locations: ILocation[] }> = ({
                                     <>
                                         <p className="italic">
                                             Aankomstdatum:
-                                        <br />
-                                        {new Date(
-                                            activeLocation.arrival_date
-                                        ).toLocaleDateString('nl', {
-                                            year: 'numeric',
-                                            month: 'long',
-                                            day: 'numeric',
-                                        })}
+                                            <br />
+                                            {new Date(
+                                                activeLocation.arrival_date
+                                            ).toLocaleDateString('nl', {
+                                                year: 'numeric',
+                                                month: 'long',
+                                                day: 'numeric',
+                                            })}
                                         </p>
                                         <PortableText
                                             value={activeLocation.body}
@@ -73,25 +73,15 @@ const Travel: NextPageWithLayout<{ locations: ILocation[] }> = ({
                                 ) : (
                                     <>
                                         <p className="italic">
-
-                                            Verwachte aankomstdatum:
-
-                                            <br />
-
-                                            {new Date(
-
-                                                activeLocation.expected_arrival_date
-
-                                            ).toLocaleDateString('nl', {
-
-                                                year: 'numeric',
-
-                                                month: 'long',
-
-                                                day: 'numeric',
-
-                                            })}
-
+                                           Verwachte aankomstdatum:
+                                           <br />
+                                           {new Date(
+                                               activeLocation.expected_arrival_date
+                                           ).toLocaleDateString('nl', {
+                                               year: 'numeric',
+                                               month: 'long',
+                                               day: 'numeric',
+                                           })}
                                         </p>
                                         <p className="font-medium">
                                             Binnenkort meer!
