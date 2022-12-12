@@ -1,5 +1,6 @@
 import '../styles/global.css'
 import { Wrapper } from '@googlemaps/react-wrapper'
+import { Analytics } from '@vercel/analytics/react'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import type { ReactElement, ReactNode } from 'react'
@@ -19,6 +20,7 @@ function App({ Component, pageProps }: AppPropsWithLayout): ReactNode {
     return getLayout(
         <Wrapper apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY || ''}>
             <Component {...pageProps} />
+            <Analytics />
         </Wrapper>
     )
 }
