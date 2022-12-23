@@ -42,7 +42,7 @@ const Travel: NextPageWithLayout<{ locations: ILocation[] }> = ({
                 <div className="bg-sand text-center">
                     <Container>
                         {activeLocation && (
-                            <div className="p-12">
+                            <div className="my-12 md:px-12">
                                 <h2 className="text-3xl mb-4 font-merienda">
                                     {activeLocation.location}
                                 </h2>
