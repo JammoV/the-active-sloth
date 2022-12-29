@@ -39,7 +39,7 @@ const Travel: NextPageWithLayout<{ locations: ILocation[] }> = ({
             </Head>
             <main className="flex flex-col">
                 <Map locations={locations} onMarkerClick={onMarkerClick} />
-                <div className="bg-sand text-center">
+                <div className="bg-sand">
                     <Container>
                         {activeLocation && (
                             <div className="my-12 md:px-12">
