@@ -63,10 +63,10 @@ const portableComponents: PortableTextComponents = {
     },
     listItem: {
         number: ({ children }) => (
-            <li className="list-decimal pl-2 ml-8 text-lg">{children}</li>
+            <li className="list-decimal pl-2 ml-8 leading-8">{children}</li>
         ),
         bullet: ({ children }) => (
-            <li className="list-disc pl-2 ml-8 text-lg">{children}</li>
+            <li className="list-disc pl-2 ml-8 leading-8">{children}</li>
         ),
     },
     marks: {

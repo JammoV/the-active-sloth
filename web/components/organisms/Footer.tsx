@@ -22,7 +22,7 @@ const Footer: FC = () => {
                 <Container>
                     <div className="pb-8">
                         <h2 className="font-merienda text-center">
-                            The Active Sloth © 2022
+                            The Active Sloth © 2023
                         </h2>
                     </div>
                 </Container>
