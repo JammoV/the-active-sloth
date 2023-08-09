@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import type { IPost } from '@/api/Types'
-import Container from '@/atoms/Container'
+import Container, { PageType } from '@/atoms/Container'
 import PostBody from '@/molecules/PostBody'
 import HeroPost from '@/organisms/HeroPost'
 
@@ -52,7 +52,7 @@ const Page = async ({
     return (
         <>
             <HeroPost post={post} />
-            <Container>
+            <Container pageType={PageType.BLOGPOST}>
                 <article>
                     <div className="my-12">
                         <PostBody body={post.body} />

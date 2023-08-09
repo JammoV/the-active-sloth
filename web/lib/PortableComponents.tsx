@@ -83,8 +83,16 @@ const portableComponents: PortableTextComponents = {
         ),
     },
     block: {
-        h2: ({ children }) => <Header type={HeaderType.H2}>{children}</Header>,
-        h3: ({ children }) => <Header type={HeaderType.H3}>{children}</Header>,
+        h2: ({ children, value }) => (
+            <Header type={HeaderType.H2} identifier={value._key}>
+                {children}
+            </Header>
+        ),
+        h3: ({ children, value }) => (
+            <Header type={HeaderType.H3} identifier={value._key}>
+                {children}
+            </Header>
+        ),
         h4: ({ children }) => <Header type={HeaderType.H4}>{children}</Header>,
         blockquote: ({ children }) => <BlockQuote>{children}</BlockQuote>,
     },

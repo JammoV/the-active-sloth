@@ -1,11 +1,26 @@
 import type { FC, ReactNode } from 'react'
 
-interface ContainerProps {
-    children: ReactNode
+export enum PageType {
+    DEFAULT,
+    BLOGPOST,
 }
 
-const Container: FC<ContainerProps> = ({ children }) => (
-    <div className="px-4 mx-auto max-w-[900px]">{children}</div>
+interface ContainerProps {
+    children: ReactNode
+    pageType?: PageType
+}
+
+const Container: FC<ContainerProps> = ({
+    children,
+    pageType = PageType.DEFAULT,
+}) => (
+    <div
+        className={`px-4 mx-auto ${
+            pageType === PageType.DEFAULT ? 'max-w-[900px]' : 'max-w-[1200px]'
+        }`}
+    >
+        {children}
+    </div>
 )
 
 export default Container
