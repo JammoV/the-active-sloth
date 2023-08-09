@@ -26,7 +26,10 @@
     "react/forbid-component-props": [
       "error",
       {
-        "forbid": ["style"]
+        "forbid": [{
+          "propName": "style",
+          "allowedFor": ["Image"]
+        }]
       }
     ],
     "react/no-array-index-key": "error",

@@ -19,7 +19,7 @@ const urlFor = (source: string): ImageUrlBuilder => {
 }
 
 const PostHero: FC<PostHeroProps> = ({ post, index }) => (
-    <Link href="/post/[slug]" as={`/post/${post.slug.current}`}>
+    <Link href="/posts/[slug]" as={`/posts/${post.slug.current}`}>
         <div className="flex flex-col hover:cursor-pointer md:mb-6 md:flex-row">
             <div className="md:min-w-[505px]">
                 <Image
@@ -30,7 +30,6 @@ const PostHero: FC<PostHeroProps> = ({ post, index }) => (
                         .url()}
                     width={505}
                     height={342}
-                    layout="responsive"
                     loading={index === 0 ? 'eager' : 'lazy'}
                     alt={post.title}
                     priority={index === 0}

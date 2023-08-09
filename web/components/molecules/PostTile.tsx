@@ -18,13 +18,13 @@ const PostTile: FC<PostTileProps> = ({ post }) => (
                 .height(350)
                 .quality(100)
                 .url()}
-            layout="responsive"
+            // layout="responsive"
             width={900}
             height={350}
             loading="lazy"
             alt={post.title}
         />
-        <Link href="/post/[slug]" as={`/post/${post.slug.current}`}>
+        <Link href="/posts/[slug]" as={`/posts/${post.slug.current}`}>
             <div className="bg-gradient-to-t from-black/80 w-full h-full absolute z-20 top-0 text-white hover:from-black/90 hover:cursor-pointer">
                 <div className="text-white absolute bottom-0 p-4 md:p-8">
                     <span className="md:text-lg drop-shadow-md">

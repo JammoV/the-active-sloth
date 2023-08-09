@@ -26,8 +26,8 @@ const MapPopup: FC<MapPopupProps> = ({ post, active }) => {
                             .width(500)
                             .height(150)
                             .url()}
-                        objectFit={'cover'}
-                        objectPosition={'center'}
+                        // objectFit={'cover'}
+                        // objectPosition={'center'}
                         width={500}
                         height={150}
                         alt={post.title}
@@ -36,9 +36,7 @@ const MapPopup: FC<MapPopupProps> = ({ post, active }) => {
                         {post.title}
                     </h4>
                     <Link href="/post/[slug]" as={`/post/${post.slug.current}`}>
-                        <a>
-                            <Button text="Artikel lezen" size={'sm'} />
-                        </a>
+                        <Button text="Artikel lezen" size={'sm'} />
                     </Link>
                 </div>
             )}

@@ -1,26 +1,22 @@
-import groq from 'groq'
-import type { GetStaticProps } from 'next'
-import Head from 'next/head'
-import type { ReactElement } from 'react'
+'use client'
+
+import { Wrapper } from '@googlemaps/react-wrapper'
+import type { FC } from 'react'
 import React, { useEffect, useState } from 'react'
 
 import type { ICategory, IPost } from '@/api/Types'
-import CenteredHeader from '@/atoms/CenteredHeader'
 import Container from '@/atoms/Container'
-import Generic from '@/layouts/Generic'
 import CategoryFilter from '@/molecules/CategoryFilter'
 import MapViewButtons from '@/molecules/MapViewButtons'
 import PostsList from '@/organisms/PostsList'
 import PostsMap from '@/organisms/PostsMap'
 
-import client from '../client'
-
-import type { NextPageWithLayout } from './_app'
-
-const Posts: NextPageWithLayout<{
+interface PostsWithFilterProps {
     posts: IPost[]
     categories: ICategory[]
-}> = ({ posts, categories }) => {
+}
+
+const PostsWithFilter: FC<PostsWithFilterProps> = ({ posts, categories }) => {
     const [activePosts, setActivePosts] = useState<IPost[]>(posts)
     const [categoryFilter, setCategoryFilter] = useState<ICategory | null>(null)
     const [mapView, setMapView] = useState<boolean>(false)
@@ -51,17 +47,7 @@ const Posts: NextPageWithLayout<{
 
     return (
         <>
-            <Head>
-                <title>The Active Sloth - Alle reis artikelen</title>
-                <meta
-                    name="description"
-                    content="The Active Sloth: een overzicht van alle Reis Artikelen"
-                />
-            </Head>
             <Container>
-                <div className="mt-8 mb-2">
-                    <CenteredHeader title="Alle reis artikelen" />
-                </div>
                 <div className="flex flex-col sm:flex-row justify-between items-center border-b border-b-gray-200 pb-4 gap-2 my-4">
                     <CategoryFilter
                         categories={categories}
@@ -76,7 +62,12 @@ const Posts: NextPageWithLayout<{
             </Container>
 
             {mapView ? (
-                <PostsMap posts={activePosts} categoryFilter={categoryFilter} />
+                <Wrapper apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY || ''}>
+                    <PostsMap
+                        posts={activePosts}
+                        categoryFilter={categoryFilter}
+                    />
+                </Wrapper>
             ) : (
                 <PostsList posts={activePosts} />
             )}
@@ -84,29 +75,4 @@ const Posts: NextPageWithLayout<{
     )
 }
 
-Posts.getLayout = function getLayout(page: ReactElement): ReactElement {
-    return <Generic>{page}</Generic>
-}
-
-interface ResultData {
-    posts: IPost[]
-    categories: ICategory[]
-}
-
-export const getStaticProps: GetStaticProps<ResultData> = async () => {
-    const posts: IPost[] = await client.fetch(groq`
-      *[_type == "post" && publishedAt < now() && categories[0]->title != "Interieur"] | order(publishedAt desc)
-    `)
-    const categories: ICategory[] = await client.fetch(groq`
-      *[_type == "category" && title != "Interieur"]
-    `)
-
-    return {
-        props: {
-            posts,
-            categories,
-        },
-    }
-}
-
-export default Posts
+export default PostsWithFilter

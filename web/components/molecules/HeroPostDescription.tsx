@@ -31,12 +31,10 @@ const HeroPostDescription: FC<HeroPostDescriptionProps> = ({
                     </p>
                     <>
                         <Link
-                            href="/post/[slug]"
-                            as={`/post/${post.slug.current}`}
+                            href="/posts/[slug]"
+                            as={`/posts/${post.slug.current}`}
                         >
-                            <a>
-                                <Button text="Artikel lezen" />
-                            </a>
+                            <Button text="Artikel lezen" />
                         </Link>
                     </>
                 </>

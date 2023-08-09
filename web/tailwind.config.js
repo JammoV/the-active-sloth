@@ -1,5 +1,10 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
+/** @type {import('tailwindcss').Config} \*/
 module.exports = {
   content: [
+    './app/**/*.{ts,tsx}',
+    './app/**/**/*.{ts,tsx}',
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     './lib/*.{ts,tsx}',
@@ -28,8 +33,8 @@ module.exports = {
       xl: '1440px',
     },
     fontFamily: {
-      roboto: ['Roboto', 'sans-serif'],
-      merienda: ['Merienda', 'cursive'],
+      roboto: ['var(--font-roboto)', ...fontFamily.serif],
+      merienda: ['var(--font-merienda)', ...fontFamily.sans],
     },
   },
   plugins: [require('@tailwindcss/aspect-ratio')],

@@ -7,7 +7,7 @@ import HeaderLogo from '@/molecules/HeaderLogo'
 const Header: FC = () => {
     return (
         <div className="pt-2">
-            <div className="flex flex-row justify-center text-center">
+            <div className="flex flex-row justify-evenly md:justify-center text-center">
                 <HeaderLink
                     href={'/posts'}
                     icon={faPassport}

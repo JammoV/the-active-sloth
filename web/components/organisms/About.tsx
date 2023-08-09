@@ -19,8 +19,12 @@ const About: FC = () => {
                 <div className="relative text-center">
                     <Image
                         src="/images/Eline.png"
-                        width={252}
-                        height={347}
+                        style={{
+                            width: '252px',
+                            height: 'auto',
+                        }}
+                        width={419}
+                        height={578}
                         alt="Eline: The Active Sloth"
                     />
                     <div className="hidden md:block md:absolute md:-bottom-[27px] md:-right-[27px]">
