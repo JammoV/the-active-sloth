@@ -23,6 +23,7 @@ const About: FC = () => {
                             width: '252px',
                             height: 'auto',
                         }}
+                        className="mx-auto"
                         width={419}
                         height={578}
                         alt="Eline: The Active Sloth"

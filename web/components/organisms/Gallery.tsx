@@ -36,25 +36,25 @@ const getImageClass = (width: number, index: number): string => {
     }
 
     if ([0, 3, 5].includes(index)) {
-        return 'flex-1 mr-1'
+        return 'flex-1 mr-2 mb-4'
     }
 
     if ([1, 4, 6].includes(index)) {
-        return 'flex-1 ml-1'
+        return 'flex-1 ml-2 mb-4'
     }
 
-    return 'flex-1 m-1'
+    return 'flex-1 m-2'
 }
 
 const getGalleryClass = (display: GalleryDisplay): string => {
     switch (display) {
         case GalleryDisplay.DEFAULT:
-            return 'flex flex-wrap mt-4 mb-8'
+            return 'flex flex-wrap my-4'
         case GalleryDisplay.INLINE:
-            return 'flex flex-row mt-4 mb-8'
+            return 'flex flex-row my-4'
         case GalleryDisplay.STACKED:
         default:
-            return 'flex flex-col mt-4 mb-8'
+            return 'flex flex-col my-4'
     }
 }
 
@@ -85,7 +85,7 @@ const Gallery: FC<GalleryProps> = ({ images, display }) => {
                 {images.map((image) => (
                     // @ts-ignore
                     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                    <div className="m-1 first:ml-0 last:mr-0" key={image._key}>
+                    <div className="mx-2 first:ml-0 last:mr-0" key={image._key}>
                         <Image
                             alt={image.alt}
                             width={imageWidth}
@@ -112,7 +112,7 @@ const Gallery: FC<GalleryProps> = ({ images, display }) => {
                 {images.map((image) => (
                     // @ts-ignore
                     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                    <div className="m-1 first:mt-0 last:mb-0" key={image._key}>
+                    <div className="my-2 first:mt-0 last:mb-0" key={image._key}>
                         <Image
                             width={imageWidth}
                             height={imageHeight}
