@@ -27,7 +27,7 @@ interface LayoutProps {
 
 const RootLayout: FC<LayoutProps> = ({ children }) => (
     <html lang="nl">
-        <body>
+        <body className={`${roboto.variable} ${merienda.variable}`}>
             <div className="min-h-screen flex flex-col">
                 <Header />
                 <main className="flex-grow">{children}</main>

@@ -2,7 +2,6 @@ import groq from 'groq'
 import Link from 'next/link'
 import React from 'react'
 
-
 import type { IPost } from '@/api/Types'
 import Button from '@/atoms/Button'
 import CenteredHeader from '@/atoms/CenteredHeader'
