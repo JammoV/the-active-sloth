@@ -35,7 +35,10 @@ const MapPopup: FC<MapPopupProps> = ({ post, active }) => {
                     <h4 className="font-medium my-1 md:my-2 text-base">
                         {post.title}
                     </h4>
-                    <Link href="/posts/[slug]" as={`/posts/${post.slug.current}`}>
+                    <Link
+                        href="/posts/[slug]"
+                        as={`/posts/${post.slug.current}`}
+                    >
                         <Button text="Artikel lezen" size={'sm'} />
                     </Link>
                 </div>
