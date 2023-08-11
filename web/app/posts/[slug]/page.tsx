@@ -10,6 +10,8 @@ import HeroPost from '@/organisms/HeroPost'
 
 import client from '../../../client'
 
+export const revalidate = 1200
+
 const query = groq`*[_type == "post" && slug.current == $slug][0]{
   title,
   mainImage,

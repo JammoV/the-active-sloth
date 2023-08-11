@@ -8,6 +8,8 @@ import PostsWithFilter from '@/organisms/PostsWithFilter'
 
 import client from '../../client'
 
+export const revalidate = 1200
+
 const getPosts = async (): Promise<IPost[]> => {
     const posts: IPost[] = await client.fetch(groq`
       *[_type == "post" && publishedAt < now() && categories[0]->title != "Interieur"] | order(publishedAt desc)

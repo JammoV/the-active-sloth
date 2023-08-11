@@ -13,6 +13,8 @@ import HeroPost from '@/organisms/HeroPost'
 
 import client from '../client'
 
+export const revalidate = 600
+
 const getPrimaryPost = async (): Promise<IPost> => {
     const primaryPost: IPost[] = await client.fetch(groq`
       *[_type == "post" && publishedAt < now() && showOnHome == true]
