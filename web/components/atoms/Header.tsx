@@ -22,7 +22,7 @@ const Header: FC<HeaderProps> = ({ type, children, identifier }) => {
     }
     if (type === HeaderType.H3) {
         return (
-            <h3 className={`text-xl font-medium my-2`} id={identifier}>
+            <h3 className={`text-xl font-merienda my-2`} id={identifier}>
                 {children}
             </h3>
         )

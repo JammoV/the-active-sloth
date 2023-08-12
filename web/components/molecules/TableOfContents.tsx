@@ -13,7 +13,7 @@ interface TableOfContentsProps {
 
 const TableOfContents: FC<TableOfContentsProps> = ({ headers }) => {
     return (
-        <div className="mb-4 p-4 flex flex-col border gap-1">
+        <div className="mb-4 p-4 flex flex-col border border-orange gap-1">
             <span className="font-merienda text-xl font-bold">Inhoud</span>
             {headers.map((header) => (
                 <Link
